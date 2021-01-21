@@ -25,4 +25,11 @@ $(document).on('turbolinks:load', () => {
     if (messagesElement.length > 0) {
         messagesElement.scrollTop(messagesElement[0].scrollHeight)
     }
+    let buttonElement = $('#message_body');
+    $(buttonElement).on('keydown', function(event){
+        if(event.keyCode == '13'){
+            $('button').click();
+            event.target.value = ""
+        }
+    })
 });
