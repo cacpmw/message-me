@@ -14,9 +14,15 @@ import 'semantic-ui-sass'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
 $(document).on('turbolinks:load', () => {
     $('.ui.dropdown').dropdown();
     $('.message .close').on('click', function () {
         $(this).closest('.message').transition('fade');
     });
+
+    let messagesElement = $('#messages');
+    if (messagesElement.length > 0) {
+        messagesElement.scrollTop(messagesElement[0].scrollHeight)
+    }
 });
